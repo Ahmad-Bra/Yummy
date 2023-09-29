@@ -132,7 +132,7 @@ function filterimg() {
 
   document.querySelectorAll(this.dataset.filter).forEach((ele) => {
     ele.style.cssText =
-      " transform: scale(1.4); transition: all 1s ; opacity: 0;";
+      " transform: scale(.5); transition: all 1s ; opacity: 0;";
     setTimeout(() => {
       ele.style.cssText =
         " display: block; transform: none; transition: all 1s ease-in-out; opacity: 1;";
@@ -206,20 +206,20 @@ Pageination.forEach((pag) => {
   });
   pag.addEventListener("click", showCard);
 });
-Pageination[Math.floor(Math.random() * Pageination.length)].click();
-setInterval(() => {
-  Pageination[Math.floor(Math.random() * Pageination.length)].click();
-}, 3000);
 
 function showCard() {
   cards.forEach((card) => {
-    card.style.cssText = "display: none;";
+    card.style.cssText = "display: none ; ";
   });
   setTimeout(() => {
     document.querySelector(this.dataset.card).style.cssText =
-      "display: flex; transition: all 1s; opacity: 1; ";
+      "display: flex; animation: card 0.8s ease-in-out forwards;";
   }, 0);
 }
+Pageination[Math.floor(Math.random() * Pageination.length)].click();
+let clearCard = setInterval(function () {
+  Pageination[Math.floor(Math.random() * Pageination.length)].click();
+}, 5000);
 
 //gallery slide
 let gallery = Array.from(document.querySelectorAll(".gallery .img-cont img"));
@@ -329,3 +329,9 @@ if (preloader) {
     preloader.remove();
   });
 }
+
+// skitch js
+
+// ----------------------------------------
+// Particle
+// ----------------------------------------

@@ -161,33 +161,6 @@ body {
   overflow: hidden;
   font-size: 18px;
 }
-.navbar ul .drop-down .one,
-.navbar ul .drop-down .two {
-  display: none;
-}
-.navbar ul .drop-down:hover .one {
-  position: fixed;
-  display: block;
-  width: 200px;
-  height: 200px;
-  top: 66px;
-  background-color: white;
-
-  right: 220px;
-  padding: 15px;
-  box-shadow: 0 3px 16px #777;
-}
-.navbar ul .drop-down-2:hover .two {
-  position: fixed;
-  display: block;
-  width: 200px;
-  height: 200px;
-  background-color: white;
-  top: 167px;
-  right: 410px;
-  padding: 15px 0 15px 10px;
-  box-shadow: 0 3px 16px #777;
-}
 .navbar li::after {
   content: "";
   position: absolute;
@@ -478,10 +451,17 @@ body {
   border-radius: 0;
   padding: 10px 20px;
   display: none;
-  transition: all 0.8s ease-in-out;
-  opacity: 0;
 }
-
+@keyframes card {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(1);
+  }
+}
 .testemonials .card img {
   max-width: 100%;
   border-radius: 50%;
@@ -529,6 +509,7 @@ body {
 .testemonials ul li.active {
   background-color: var(--color-primary);
 }
+
 /* events */
 .events {
   padding: 40px 0;
@@ -750,9 +731,18 @@ body {
   background-color: var(--color-primary);
 }
 .gallery .img-cont img.active {
-  -webkit-transition: all 1s;
-  transition: all 1s !important;
   display: block;
+  animation: img 0.8s ease-in-out forwards;
+}
+@keyframes img {
+  from {
+    transform: scale(0.8) translateY(20%);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateX(0);
+    opacity: 1;
+  }
 }
 .gallery .img-cont .left {
   position: absolute;
